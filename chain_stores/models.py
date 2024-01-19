@@ -15,12 +15,12 @@ class Supplier(MPTTModel):
     """
     name = models.CharField(unique=True, max_length=200, verbose_name="Наименование", db_index=True)
     type = models.CharField(choices=SupplierType.choices, default=SupplierType.ZAVOD, verbose_name='Тип')
-    contacts = models.OneToOneField('Contacts', on_delete=models.CASCADE, verbose_name='Контакты')
+    contacts = models.OneToOneField('Contacts', on_delete=models.CASCADE, verbose_name='Контакты', unique=False)
     email = models.EmailField(blank=True, verbose_name="E-mail")
     products = models.ManyToManyField('Product', verbose_name='Товар', db_index=True)
     arrears = models.FloatField(null=True, blank=True, verbose_name="Задолженность перед поставщиком")
     release_date = models.DateTimeField(auto_now_add=True, verbose_name="Время создания", db_index=True)
-    parent = TreeForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, related_name='children',
+    parent = TreeForeignKey('self', on_delete=models.PROTECT, null=True, related_name='children',
                             db_index=True, verbose_name='Поставщик')
     supplier_level = models.IntegerField(blank=True, verbose_name="Уровень")
 
