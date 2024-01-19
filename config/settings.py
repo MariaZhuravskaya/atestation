@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'django_mptt_admin',
+
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -142,6 +144,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
     ),
+
 }
 
 # Настройки срока действия токенов
