@@ -50,5 +50,8 @@
 
 **3.** Загрузить тестовые данные командой: python manage.py loaddata data.json
 
-**4.** В файле supplier.api.http написаны для модели "Поставщики" CRUD запросы.
+**4.** Получить токен для авторизации  --http://localhost:8000/users/token/
+
+**5.** В файле supplier.api.http написаны для модели "Поставщики" CRUD запросы.
+
 
